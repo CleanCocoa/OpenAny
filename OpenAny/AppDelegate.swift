@@ -32,22 +32,33 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet var window: NSWindow!
 
     lazy var urlSchemeHandler = URLSchemeHandler(actionHandler: { action in
-        switch action.lowercased(includingObject: false).moduleSubjectVerbObject() {
-        case (.file, "open", nil, nil):
-            guard let payload = action.payload else {
-                return
-            }
+        switch action.lowercased(includingObject: false).moduleSubjectVerb() {
+        case (.file, "open", nil):
+            guard let fileURL = action.payload?.fileURL() else { return }
 
-            if let fileURL = payload.fileURL() {
-                NSWorkspace.shared.open(fileURL)
-            }
+            NSWorkspace.shared.open(fileURL)
 
-        case (.app, let appBundleIdentifier, "launch", _):
+        case (.app, let appBundleIdentifier, nil):
             guard let appURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: appBundleIdentifier)
             else { return }
             NSWorkspace.shared.openApplication(
                 at: appURL,
                 configuration: .init(fromPayload: action.payload))
+
+        case (.app, let appBundleIdentifier, "view"):
+            guard let appURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: appBundleIdentifier)
+            else { return }
+
+            if let fileURL = action.payload?.fileURL() {
+                NSWorkspace.shared.open(
+                    [fileURL],
+                    withApplicationAt: appURL,
+                    configuration: .init(fromPayload: action.payload))
+            } else {
+                NSWorkspace.shared.openApplication(
+                    at: appURL,
+                    configuration: .init(fromPayload: action.payload))
+            }
 
         default: return
         }
