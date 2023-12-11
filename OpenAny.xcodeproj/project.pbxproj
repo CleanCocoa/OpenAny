@@ -12,6 +12,8 @@
 		50BF9FD72B27446C0064FAA2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50BF9FD52B27446C0064FAA2 /* MainMenu.xib */; };
 		50BF9FE12B2744AF0064FAA2 /* URLSchemer in Frameworks */ = {isa = PBXBuildFile; productRef = 50BF9FE02B2744AF0064FAA2 /* URLSchemer */; };
 		50BF9FE32B2748A80064FAA2 /* URLComponentParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BF9FE22B2748A80064FAA2 /* URLComponentParser.swift */; };
+		50BF9FE72B2770FA0064FAA2 /* OpenAnyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BF9FE62B2770FA0064FAA2 /* OpenAnyError.swift */; };
+		50BF9FE92B2771080064FAA2 /* PerformAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BF9FE82B2771080064FAA2 /* PerformAction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		50BF9FDE2B27448A0064FAA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		50BF9FE22B2748A80064FAA2 /* URLComponentParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLComponentParser.swift; sourceTree = "<group>"; };
 		50BF9FE52B276CA70064FAA2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		50BF9FE62B2770FA0064FAA2 /* OpenAnyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAnyError.swift; sourceTree = "<group>"; };
+		50BF9FE82B2771080064FAA2 /* PerformAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformAction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 			children = (
 				50BF9FDE2B27448A0064FAA2 /* Info.plist */,
 				50BF9FD12B27446B0064FAA2 /* AppDelegate.swift */,
+				50BF9FE82B2771080064FAA2 /* PerformAction.swift */,
+				50BF9FE62B2770FA0064FAA2 /* OpenAnyError.swift */,
 				50BF9FE22B2748A80064FAA2 /* URLComponentParser.swift */,
 				50BF9FD32B27446C0064FAA2 /* Assets.xcassets */,
 				50BF9FD52B27446C0064FAA2 /* MainMenu.xib */,
@@ -145,6 +151,8 @@
 			files = (
 				50BF9FE32B2748A80064FAA2 /* URLComponentParser.swift in Sources */,
 				50BF9FD22B27446B0064FAA2 /* AppDelegate.swift in Sources */,
+				50BF9FE72B2770FA0064FAA2 /* OpenAnyError.swift in Sources */,
+				50BF9FE92B2771080064FAA2 /* PerformAction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

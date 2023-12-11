@@ -32,41 +32,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet var window: NSWindow!
 
     lazy var urlSchemeHandler = URLSchemeHandler(actionHandler: { action in
-        switch action.lowercased(includingObject: false).moduleSubjectVerb() {
-        case (.file, "open", nil):
-            guard let fileURL = action.payload?.fileURL() else { return }
-
-            NSWorkspace.shared.open(fileURL)
-
-        case (.app, let appBundleIdentifier, nil),
-             (.app, let appBundleIdentifier, "launch"):
-            guard let appURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: appBundleIdentifier)
-            else { return }
-            NSWorkspace.shared.openApplication(
-                at: appURL,
-                configuration: .init(fromPayload: action.payload))
-
-        case (.app, let appBundleIdentifier, "view"),
-            (.file, "openwith", .some(let appBundleIdentifier)):
-            guard let appURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: appBundleIdentifier)
-            else { return }
-
-            if let fileURL = action.payload?.fileURL() {
-                NSWorkspace.shared.open(
-                    [fileURL],
-                    withApplicationAt: appURL,
-                    configuration: .init(fromPayload: action.payload))
-            } else {
-                NSWorkspace.shared.openApplication(
-                    at: appURL,
-                    configuration: .init(fromPayload: action.payload))
-            }
-
-        default: return
+        do {
+            try OpenAny.perform(action: action)
+        } catch {
+            let alert = NSAlert(error: error)
+            alert.addButton(withTitle: "Quit")
+            alert.runModal()
         }
+        NSApp.terminate(nil)
     })
 
-    func applicationDidFinishLaunching(_ aNotification: Notification) {
+    func applicationWillFinishLaunching(_ notification: Notification) {
         urlSchemeHandler.install()
     }
 }
