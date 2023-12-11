@@ -10,6 +10,7 @@
 		50BF9FD22B27446B0064FAA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BF9FD12B27446B0064FAA2 /* AppDelegate.swift */; };
 		50BF9FD42B27446C0064FAA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50BF9FD32B27446C0064FAA2 /* Assets.xcassets */; };
 		50BF9FD72B27446C0064FAA2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50BF9FD52B27446C0064FAA2 /* MainMenu.xib */; };
+		50BF9FE12B2744AF0064FAA2 /* URLSchemer in Frameworks */ = {isa = PBXBuildFile; productRef = 50BF9FE02B2744AF0064FAA2 /* URLSchemer */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50BF9FE12B2744AF0064FAA2 /* URLSchemer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +78,9 @@
 			dependencies = (
 			);
 			name = OpenAny;
+			packageProductDependencies = (
+				50BF9FE02B2744AF0064FAA2 /* URLSchemer */,
+			);
 			productName = OpenAny;
 			productReference = 50BF9FCE2B27446B0064FAA2 /* OpenAny.app */;
 			productType = "com.apple.product-type.application";
@@ -104,6 +109,9 @@
 				Base,
 			);
 			mainGroup = 50BF9FC52B27446B0064FAA2;
+			packageReferences = (
+				50BF9FDF2B2744AF0064FAA2 /* XCRemoteSwiftPackageReference "URLSchemer" */,
+			);
 			productRefGroup = 50BF9FCF2B27446B0064FAA2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -346,6 +354,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		50BF9FDF2B2744AF0064FAA2 /* XCRemoteSwiftPackageReference "URLSchemer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CleanCocoa/URLSchemer.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		50BF9FE02B2744AF0064FAA2 /* URLSchemer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 50BF9FDF2B2744AF0064FAA2 /* XCRemoteSwiftPackageReference "URLSchemer" */;
+			productName = URLSchemer;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 50BF9FC62B27446B0064FAA2 /* Project object */;
 }
