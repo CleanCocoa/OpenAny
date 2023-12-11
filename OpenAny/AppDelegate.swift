@@ -1,11 +1,18 @@
-//
-//  AppDelegate.swift
-//  OpenAny
-//
-//  Created by Christian Tietze on 11.12.23.
-//
-
 import Cocoa
+import URLSchemer
+
+extension Module {
+    static var app = Module("app")
+}
+
+extension NSWorkspace.OpenConfiguration {
+    convenience init(
+        fromPayload payload: Payload?
+    ) {
+        self.init()
+        self.activates = true
+    }
+}
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -14,17 +21,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+        URLSchemeHandler(actionHandler: { action in
+            switch action.lowercased(includingObject: false).moduleSubjectVerbObject() {
+            case (.app, let appBundleIdentifier, "launch", _):
+                guard let appURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: appBundleIdentifier)
+                else { return }
+                NSWorkspace.shared.openApplication(
+                    at: appURL,
+                    configuration: .init(fromPayload: action.payload))
+
+            default: return
+            }
+        }).install()
     }
-
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
-    }
-
-    func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
-        return true
-    }
-
-
 }
-
