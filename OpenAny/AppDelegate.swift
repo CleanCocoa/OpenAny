@@ -45,4 +45,35 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillFinishLaunching(_ notification: Notification) {
         urlSchemeHandler.install()
     }
+
+    func application(_ application: NSApplication, open urls: [URL]) {
+        let bundleIdentifiers = urls.compactMap { Bundle(url: $0)?.bundleIdentifier }
+
+        let alert = NSAlert()
+        alert.messageText = "Bundle Identifiers"
+        alert.informativeText = "Here are the app bundle identifiers of the files you selected so you can use them for openany://app/ and similar:"
+        alert.accessoryView = scrollableTextView(content: bundleIdentifiers.joined(separator: "\n"))
+        alert.runModal()
+    }
+
+    private func scrollableTextView(
+        content: String
+    ) -> NSScrollView {
+        let scrollView = NSScrollView(frame: NSRect(x: 0, y: 0, width: 400, height: 150))
+        scrollView.hasVerticalScroller = true
+        scrollView.autohidesScrollers = true
+        scrollView.borderType = NSBorderType.bezelBorder
+        scrollView.autoresizingMask = [ .width, .height ]
+
+        let contentSize = scrollView.contentSize
+        let textView = NSTextView(frame: NSRect(x: 0, y: 0, width: contentSize.width, height: contentSize.height))
+        textView.isVerticallyResizable = true
+        textView.isEditable = true
+        textView.textContainer?.containerSize = NSSize(width: contentSize.width, height: CGFloat.greatestFiniteMagnitude)
+        textView.textContainer?.widthTracksTextView = true
+        textView.string = content
+        scrollView.documentView = textView
+
+        return scrollView
+    }
 }

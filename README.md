@@ -18,6 +18,16 @@ Powered by the `openany://` URL scheme, you can launch apps and open files!
 - `openany://app/com.apple.textedit/view?path=/path/to/file.txt` opens `/path/to/file.txt` in TextEdit.
 - `openany://app/com.apple.textedit/view?url=file:///path/to/file.txt` opens `/path/to/file.txt` in TextEdit, but using a `file://` URL instead of a path.
 
+## How to get an app's bundle ID
+
+![Screenshot of the Bundle ID extractor](screenshots/openany_bundle-id.png)
+
+You can drag and drop any app onto the OpenAny application icon to extract its bundle ID.
+
+1. Launch OpenAny directly;
+2. Drag apps from Finder to the OpenAny application icon in your dock;
+3. Copy the bundle ID out of the dialog, then close it.
+
 > ⚠️ For apps, you need the bundle identifier. PR's welcome for lookup of application by name!
 
 ## Why `file://`?!
