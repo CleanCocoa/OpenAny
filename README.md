@@ -40,15 +40,26 @@ Open any app, or any file, or any file in any app!
 
 Powered by the `openany://` URL scheme, you can launch apps and open files!
 
+Open app:
+
 - `openany://app/com.apple.textedit` launches TextEdit via its bundle identifier.
-- `openany://app/com.apple.textedit/view?path=/path/to/file.txt` opens `/path/to/file.txt` in TextEdit.
-- `openany://app/com.apple.textedit/view?url=file:///path/to/file.txt` opens `/path/to/file.txt` in TextEdit, but using a `file://` URL instead of a path.
+
+Open file:
+
 - `openany://file/open?path=/path/to/file.txt` opens `/path/to/file.txt` in your default editor of text files.
 - `openany://file/open?url=file:///path/to/file.txt` opens `/path/to/file.txt` in your default editor of text files, but using a `file://` URL instead of a path.
-- `openany://file/openwith/com.apple.textedit?path=/path/to/file.txt` opens `/path/to/file.txt` in TextEdit.
-- `openany://file/openwith/com.apple.textedit?url=file:///path/to/file.txt` opens `/path/to/file.txt` in TextEdit, but using a `file://` URL instead of a path.
+
+Open files with app:
+
 - `openany://app/com.apple.textedit/view?path=/path/to/file.txt` opens `/path/to/file.txt` in TextEdit.
 - `openany://app/com.apple.textedit/view?url=file:///path/to/file.txt` opens `/path/to/file.txt` in TextEdit, but using a `file://` URL instead of a path.
+- `openany://file/openwith/com.apple.textedit?path=/path/to/file.txt` opens `/path/to/file.txt` in TextEdit.
+- `openany://file/openwith/com.apple.textedit?url=file:///path/to/file.txt` opens `/path/to/file.txt` in TextEdit, but using a `file://` URL instead of a path.
+
+Reveal file: 
+
+- `openany://file/reveal?path=/path/to/file.txt` reveals `/path/to/file.txt` in Finder.
+- `openany://file/reveal?url=file:///path/to/file.txt` reveals `/path/to/file.txt` in Finder, but using a `file://` URL instead of a path.
 
 ## How to get an app's bundle ID
 
