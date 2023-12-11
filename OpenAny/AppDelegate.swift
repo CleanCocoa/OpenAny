@@ -38,7 +38,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
             NSWorkspace.shared.open(fileURL)
 
-        case (.app, let appBundleIdentifier, nil):
+        case (.app, let appBundleIdentifier, nil),
+             (.app, let appBundleIdentifier, "launch"):
             guard let appURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: appBundleIdentifier)
             else { return }
             NSWorkspace.shared.openApplication(
