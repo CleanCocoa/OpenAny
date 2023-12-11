@@ -6,10 +6,9 @@ Launches, performs its job, then quits. No long-running processes. No clutter in
 
 ## Installation
 
-<img src="screenshots/dmg.jpeg" align="center" width="444"> 
-
 1. Download binary [from latest release](https://github.com/CleanCocoa/OpenAny/releases/latest)
-2. Move to `/Applications` (before launching, so that macOS clears the app's quarantine flags)
+2. Move to `/Applications` (before launching, so that macOS clears the app's quarantine flags)<br>
+   <img src="screenshots/dmg.jpeg" align="center" width="444">
 3. (To make sure everything works, open the app once, then quit, to register its URL scheme.)
 
 Done!
