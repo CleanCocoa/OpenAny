@@ -83,13 +83,13 @@ Reveal file:
 
 ## How to get an app's bundle ID
 
-![Screenshot of the Bundle ID extractor](screenshots/openany_bundle-id.png)
-
 You can drag and drop any app onto the OpenAny application icon to extract its bundle ID.
 
 1. Launch OpenAny directly;
 2. Drag apps from Finder to the OpenAny application icon in your dock;
-3. Copy the bundle ID out of the dialog, then close it.
+3. Copy the bundle ID out of the dialog,<br>
+   <img src="screenshots/openany_bundle-id.png" alt="Screenshot of the Bundle ID extractor" width="300">
+4. then close it (and quit the app).
 
 > ⚠️ For apps, you need the bundle identifier. PR's welcome for lookup of application by name!
 
