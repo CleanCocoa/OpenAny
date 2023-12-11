@@ -15,22 +15,30 @@ extension NSWorkspace.OpenConfiguration {
     }
 }
 
+extension Payload {
+    func fileURL() -> URL? {
+        if let fileURL = self["url"]?.flatMap(URL.init(string:)) {
+            return fileURL
+        } else if let maybePath = self["path"],
+                  let path = maybePath {
+            return URL(fileURLWithPath: path)
+        }
+        return nil
+    }
+}
+
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet var window: NSWindow!
 
     lazy var urlSchemeHandler = URLSchemeHandler(actionHandler: { action in
         switch action.lowercased(includingObject: false).moduleSubjectVerbObject() {
-        case (.file, "open", _, _):
+        case (.file, "open", nil, nil):
             guard let payload = action.payload else {
                 return
             }
 
-            if let fileURL = payload["url"]?.flatMap(URL.init(string:)) {
-                NSWorkspace.shared.open(fileURL)
-            } else if let maybePath = payload["path"],
-                      let path = maybePath {
-                let fileURL = URL(fileURLWithPath: path)
+            if let fileURL = payload.fileURL() {
                 NSWorkspace.shared.open(fileURL)
             }
 
