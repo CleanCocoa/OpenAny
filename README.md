@@ -68,21 +68,29 @@ The query parameters are called the URL's _payload._
 - For the `app` host:
     - The `SUBJECT` is the app's bundle ID. (Followed by a verb.)
 - For the `file` host:
+    - `reveal` (acting as `VERB` here), see below.
+    - `open` (acting as `VERB` here), see below.
     - `openwith` (acting as `VERB` here), see below.
+    - `show` (acting as `VERB` here), see below.
 
 ### List of possible `VERB`s
 
-- For the `app` host:
-    - Given a `BUNDLE_ID` as `SUBJECT`
+- For the `app` host
+    - with `BUNDLE_ID` being the `SUBJECT`:
       - (none): Launches the app. Alias ans shorthand to `launch`.
       - `launch`: `/app/BUNDLE_ID/launch`
       - `view`: `/app/BUNDLE_ID/view` opens a file, specified by the payload, in the app. Alias for `/file/openwith/BUNDLE_ID`.
 - For the `file` host:
+    - `reveal`: Reveal a file, specified by the payload, in Finder.
+    - `open`: Open a file, specified by the payload, in the default app.
     - `openwith`: Open a file, specified by the payload, with the app being the `OBJECT`. Alias for `/app/BUNDLE_ID/view`. Example: `openany://file/openwith/com.apple.textedit?path=/path/to/file.txt` opens `/path/to/file.txt` in TextEdit.
+    - `show`: Alias for `reveal`.
 
 ### List of possible Payloads
 
 Only used by file-related actions, the payload keys are:
 
-- `path`: As in `?path=/path/to/file.txt`, using an absolute POSIX path. Most useful for simple paths without e.g. spaces.
+- `path`: As in `?path=/path/to/file.txt`, using an absolute POSIX path. Expands `~` in the path. Most useful for simple paths without e.g. spaces.
 - `url`: As in `?url=file:///path/to%20a%file/with%20spaces.txt`, using an absolute `file://` URL, e.g. to easil encode special characters.
+
+If the path or URL point to a directory, Finder will show the directory in a new window. So `/file/open?path=~/Downloads/` is equivalent to /file/reveal?path=~/Downloads/`.

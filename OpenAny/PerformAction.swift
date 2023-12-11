@@ -5,8 +5,13 @@ func perform(action: SmallerStringAction) throws {
     case (.file, "open", nil):
         guard let fileURL = action.payload?.fileURL()
         else { throw OpenAnyError.missingFileURLOrPath }
-
         NSWorkspace.shared.open(fileURL)
+
+    case (.file, "reveal", nil),
+         (.file, "show", nil):
+        guard let fileURL = action.payload?.fileURL()
+        else { throw OpenAnyError.missingFileURLOrPath }
+        NSWorkspace.shared.selectFile(fileURL.absoluteURL.absoluteString, inFileViewerRootedAtPath: "")
 
     case (.app, let appBundleIdentifier, nil),
          (.app, let appBundleIdentifier, "launch"):
