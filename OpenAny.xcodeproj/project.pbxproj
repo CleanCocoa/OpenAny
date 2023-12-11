@@ -18,6 +18,7 @@
 		50BF9FD32B27446C0064FAA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50BF9FD62B27446C0064FAA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		50BF9FD82B27446C0064FAA2 /* OpenAny.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OpenAny.entitlements; sourceTree = "<group>"; };
+		50BF9FDE2B27448A0064FAA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +51,7 @@
 		50BF9FD02B27446B0064FAA2 /* OpenAny */ = {
 			isa = PBXGroup;
 			children = (
+				50BF9FDE2B27448A0064FAA2 /* Info.plist */,
 				50BF9FD12B27446B0064FAA2 /* AppDelegate.swift */,
 				50BF9FD32B27446C0064FAA2 /* Assets.xcassets */,
 				50BF9FD52B27446C0064FAA2 /* MainMenu.xib */,
@@ -276,6 +278,7 @@
 				DEVELOPMENT_TEAM = FRMDA3XRGC;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OpenAny/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainNibFile = MainMenu;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -304,6 +307,7 @@
 				DEVELOPMENT_TEAM = FRMDA3XRGC;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OpenAny/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainNibFile = MainMenu;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
