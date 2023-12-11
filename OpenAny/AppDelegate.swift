@@ -45,7 +45,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 at: appURL,
                 configuration: .init(fromPayload: action.payload))
 
-        case (.app, let appBundleIdentifier, "view"):
+        case (.app, let appBundleIdentifier, "view"),
+            (.file, "openwith", .some(let appBundleIdentifier)):
             guard let appURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: appBundleIdentifier)
             else { return }
 
