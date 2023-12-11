@@ -1,4 +1,4 @@
-# OpenAny
+# OpenAny<br>_Open File X with App Y_ From Anywhere
 
 macOS app and file launcher for simple scripting.
 
