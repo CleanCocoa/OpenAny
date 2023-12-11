@@ -4,6 +4,38 @@ macOS app and file launcher for simple scripting.
 
 Launches, performs its job, then quits. No long-running processes. No clutter in your menu bar!
 
+## Why?
+
+Any app that renders URLs as clickable links can now become your external app or file launchpad.
+
+- 🎉 Create **open-file-with-app links** anywhere!
+- 🌎 Assemble **dashboards** to your projects in your favorite note-taking app!
+
+For example, you can use this in almost any Markdown editor with syntax highlighting to get a clickable link that will open TextEdit:
+
+```md
+## My favorite stock macOS apps
+
+TextEdit: <openany://app/com.apple.textedit>
+```
+
+That's a very silly example. Why would you want to launch TextEdit in such a complicated way?
+
+Here's a more complicated example: open a file _with a specific app_, with a link.
+
+The default `file://` URLs you get from dragging from Finder are also clickable, but they only _reveal_ the file. Opening the file is an extra step. Boo extra steps!!11
+
+How about embedding a shortcut to edit a file with [TableFlip](https://tableflipapp.com/) and preview with [Marked](https://marked2app.com)?
+
+```md
+Preview:     <openany://app/com.brettterpstra.marked2/view?path=~/document.md>
+Edit Tables: <openany://app/de.christiantietze.TableFlip/view?path=~/document.md>
+
+... document goes here ...
+```
+
+Open any app, or any file, or any file in any app!
+
 ## Usage
 
 Powered by the `openany://` URL scheme, you can launch apps and open files!
