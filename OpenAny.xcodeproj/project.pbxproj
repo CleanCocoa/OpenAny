@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		503255D32B29A8C0008346EA /* appURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503255D22B29A8C0008346EA /* appURL.swift */; };
+		503255D52B29AAF4008346EA /* FileManager+directoryExists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503255D42B29AAF4008346EA /* FileManager+directoryExists.swift */; };
 		50BF9FD22B27446B0064FAA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BF9FD12B27446B0064FAA2 /* AppDelegate.swift */; };
 		50BF9FD42B27446C0064FAA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50BF9FD32B27446C0064FAA2 /* Assets.xcassets */; };
 		50BF9FD72B27446C0064FAA2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50BF9FD52B27446C0064FAA2 /* MainMenu.xib */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		503255D22B29A8C0008346EA /* appURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appURL.swift; sourceTree = "<group>"; };
+		503255D42B29AAF4008346EA /* FileManager+directoryExists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+directoryExists.swift"; sourceTree = "<group>"; };
 		50BF9FCE2B27446B0064FAA2 /* OpenAny.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenAny.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50BF9FD12B27446B0064FAA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50BF9FD32B27446C0064FAA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				503255D22B29A8C0008346EA /* appURL.swift */,
 				50BF9FE62B2770FA0064FAA2 /* OpenAnyError.swift */,
 				50BF9FE22B2748A80064FAA2 /* URLComponentParser.swift */,
+				503255D42B29AAF4008346EA /* FileManager+directoryExists.swift */,
 				50BF9FD32B27446C0064FAA2 /* Assets.xcassets */,
 				50BF9FD52B27446C0064FAA2 /* MainMenu.xib */,
 				50BF9FD82B27446C0064FAA2 /* OpenAny.entitlements */,
@@ -157,6 +160,7 @@
 				50BF9FD22B27446B0064FAA2 /* AppDelegate.swift in Sources */,
 				50BF9FE72B2770FA0064FAA2 /* OpenAnyError.swift in Sources */,
 				50BF9FE92B2771080064FAA2 /* PerformAction.swift in Sources */,
+				503255D52B29AAF4008346EA /* FileManager+directoryExists.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
