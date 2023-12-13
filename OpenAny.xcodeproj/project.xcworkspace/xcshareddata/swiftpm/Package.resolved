@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "urlschemer",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/CleanCocoa/URLSchemer.git",
+      "state" : {
+        "revision" : "09aa6f14c47a29c91baae0fbe4b67320a61a91cb",
+        "version" : "1.1.2"
+      }
+    }
+  ],
+  "version" : 2
+}
