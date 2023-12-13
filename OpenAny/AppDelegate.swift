@@ -32,14 +32,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet var window: NSWindow!
 
     lazy var urlSchemeHandler = URLSchemeHandler(actionHandler: { action in
-        do {
-            try OpenAny.perform(action: action)
-        } catch {
-            let alert = NSAlert(error: error)
-            alert.addButton(withTitle: "Quit")
-            alert.runModal()
+        Task { @MainActor in
+            do {
+                try await OpenAny.perform(action: action)
+            } catch {
+                let alert = NSAlert(error: error)
+                alert.addButton(withTitle: "Quit")
+                alert.runModal()
+            }
+            NSApp.terminate(nil)
         }
-        NSApp.terminate(nil)
     })
 
     func applicationWillFinishLaunching(_ notification: Notification) {
