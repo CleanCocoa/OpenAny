@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		503255D32B29A8C0008346EA /* appURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503255D22B29A8C0008346EA /* appURL.swift */; };
 		503255D52B29AAF4008346EA /* FileManager+directoryExists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503255D42B29AAF4008346EA /* FileManager+directoryExists.swift */; };
+		503255D72B29AE9F008346EA /* NSWorkspaceOpenConfiguration+initFromPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503255D62B29AE9F008346EA /* NSWorkspaceOpenConfiguration+initFromPayload.swift */; };
+		503255DA2B29AEBF008346EA /* Payload+fileURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503255D92B29AEBF008346EA /* Payload+fileURL.swift */; };
 		50BF9FD22B27446B0064FAA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BF9FD12B27446B0064FAA2 /* AppDelegate.swift */; };
 		50BF9FD42B27446C0064FAA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50BF9FD32B27446C0064FAA2 /* Assets.xcassets */; };
 		50BF9FD72B27446C0064FAA2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50BF9FD52B27446C0064FAA2 /* MainMenu.xib */; };
@@ -21,6 +23,8 @@
 /* Begin PBXFileReference section */
 		503255D22B29A8C0008346EA /* appURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appURL.swift; sourceTree = "<group>"; };
 		503255D42B29AAF4008346EA /* FileManager+directoryExists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+directoryExists.swift"; sourceTree = "<group>"; };
+		503255D62B29AE9F008346EA /* NSWorkspaceOpenConfiguration+initFromPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSWorkspaceOpenConfiguration+initFromPayload.swift"; sourceTree = "<group>"; };
+		503255D92B29AEBF008346EA /* Payload+fileURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Payload+fileURL.swift"; sourceTree = "<group>"; };
 		50BF9FCE2B27446B0064FAA2 /* OpenAny.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenAny.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50BF9FD12B27446B0064FAA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50BF9FD32B27446C0064FAA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -45,6 +49,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		503255D82B29AEB2008346EA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				503255D62B29AE9F008346EA /* NSWorkspaceOpenConfiguration+initFromPayload.swift */,
+				503255D92B29AEBF008346EA /* Payload+fileURL.swift */,
+				503255D42B29AAF4008346EA /* FileManager+directoryExists.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		50BF9FC52B27446B0064FAA2 = {
 			isa = PBXGroup;
 			children = (
@@ -71,7 +85,7 @@
 				503255D22B29A8C0008346EA /* appURL.swift */,
 				50BF9FE62B2770FA0064FAA2 /* OpenAnyError.swift */,
 				50BF9FE22B2748A80064FAA2 /* URLComponentParser.swift */,
-				503255D42B29AAF4008346EA /* FileManager+directoryExists.swift */,
+				503255D82B29AEB2008346EA /* Extensions */,
 				50BF9FD32B27446C0064FAA2 /* Assets.xcassets */,
 				50BF9FD52B27446C0064FAA2 /* MainMenu.xib */,
 				50BF9FD82B27446C0064FAA2 /* OpenAny.entitlements */,
@@ -155,11 +169,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				503255DA2B29AEBF008346EA /* Payload+fileURL.swift in Sources */,
 				503255D32B29A8C0008346EA /* appURL.swift in Sources */,
 				50BF9FE32B2748A80064FAA2 /* URLComponentParser.swift in Sources */,
 				50BF9FD22B27446B0064FAA2 /* AppDelegate.swift in Sources */,
 				50BF9FE72B2770FA0064FAA2 /* OpenAnyError.swift in Sources */,
 				50BF9FE92B2771080064FAA2 /* PerformAction.swift in Sources */,
+				503255D72B29AE9F008346EA /* NSWorkspaceOpenConfiguration+initFromPayload.swift in Sources */,
 				503255D52B29AAF4008346EA /* FileManager+directoryExists.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
