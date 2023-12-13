@@ -20,17 +20,17 @@ fileprivate func appURL(
     //   - /System/Cryptexes/App/System/Applications/
     //   - /System/Cryptexes/OS/System/Applications/
     //   - /System/Applications/
-    let searchURLs: [URL] = FileManager.default.urls(for: .applicationDirectory, in: .allDomainsMask)
+    let searchPaths: [URL] = FileManager.default.urls(for: .applicationDirectory, in: .allDomainsMask)
         .filter(FileManager.default.directoryExists(at:))
 
     // We're collecting all candidates without quickly exiting because (1) we can offer a user interactive selection, if needed, and (2) the performance penalty of searching in the 100's of URL's is negligible.
-    let candidates = try searchURLs.flatMap { directoryURL in
+    let searchPathContents = try searchPaths.flatMap { directoryURL in
         try FileManager.default
             .contentsOfDirectory(at: directoryURL, includingPropertiesForKeys: nil, options: .skipsSubdirectoryDescendants)
-            .filter { fileURL in
-                fileURL.pathExtension.lowercased() == ".app"
-                    && fileURL.lastPathComponent.lowercased().contains(name)
-            }
+    }
+    let candidates = searchPathContents.filter { fileURL in
+        fileURL.pathExtension.lowercased() == "app"
+            && fileURL.lastPathComponent.lowercased().contains(name)
     }
     return candidates.first
 }
