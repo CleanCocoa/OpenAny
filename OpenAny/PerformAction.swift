@@ -15,7 +15,7 @@ func perform(action: SmallerStringAction) throws {
 
     case (.app, let appBundleIdentifierOrName, nil),
          (.app, let appBundleIdentifierOrName, "launch"):
-        guard let appURL = appURL(bundleIdentifierOrName: appBundleIdentifierOrName)
+        guard let appURL = try appURL(bundleIdentifierOrName: appBundleIdentifierOrName)
         else { throw OpenAnyError.appNotFound(appBundleIdentifierOrName) }
         NSWorkspace.shared.openApplication(
             at: appURL,
@@ -23,7 +23,7 @@ func perform(action: SmallerStringAction) throws {
 
     case (.app, let appBundleIdentifierOrName, "view"),
          (.file, "openwith", .some(let appBundleIdentifierOrName)):
-        guard let appURL = appURL(bundleIdentifierOrName: appBundleIdentifierOrName)
+        guard let appURL = try appURL(bundleIdentifierOrName: appBundleIdentifierOrName)
         else { throw OpenAnyError.appNotFound(appBundleIdentifierOrName) }
 
         if let fileURL = action.payload?.fileURL() {

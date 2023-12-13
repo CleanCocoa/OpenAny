@@ -3,9 +3,9 @@ import AppKit
 /// Tries to interpret `bundleIdentifierOrName` as a bundle ID first. Upon failure, searches application directories.
 func appURL(
     bundleIdentifierOrName: String
-) -> URL? {
-    return  NSWorkspace.shared.urlForApplication(withBundleIdentifier: bundleIdentifierOrName)
-        ?? (try? appURL(forAppNamed: bundleIdentifierOrName))
+) throws -> URL? {
+    return try NSWorkspace.shared.urlForApplication(withBundleIdentifier: bundleIdentifierOrName)
+            ?? appURL(forAppNamed: bundleIdentifierOrName)
 }
 
 fileprivate func appURL(
