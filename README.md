@@ -27,7 +27,7 @@ For example, you can use this in almost any Markdown editor with syntax highligh
 ```md
 ## My favorite stock macOS apps
 
-TextEdit: <openany://app/com.apple.textedit>
+TextEdit: <openany://app/TextEdit>
 ```
 
 That's a very silly example. Why would you want to launch TextEdit in such a complicated way?
@@ -40,7 +40,7 @@ How about embedding a shortcut to edit a file with [TableFlip](https://tableflip
 
 ```md
 Preview:     <openany://app/com.brettterpstra.marked2/view?path=~/document.md>
-Edit Tables: <openany://app/de.christiantietze.TableFlip/view?path=~/document.md>
+Edit Tables: <openany://app/TableFlip/view?path=~/document.md>
 
 ... document goes here ...
 ```
@@ -49,12 +49,14 @@ Open any app, or any file, or any file in any app!
 
 ## Usage
 
-Powered by the `openany://` URL scheme, you can launch apps and open files!
+Powered by the `openany://` URL scheme, you can launch apps and open files.
 
 Open app:
 
 - `openany://app/com.apple.textedit`<br>
-  launches TextEdit via its bundle identifier.
+  launches TextEdit via its bundle identifier. It's a bit cumbersome, so:
+- `openany://app/TextEdit`<br>
+  launches TextEdit via its app name (not case-sensitive, actuall). That may not always be unique, though. Pick your poison 🙂
 
 Open file:
 
@@ -65,13 +67,13 @@ Open file:
 
 Open files with app:
 
-- `openany://app/com.apple.textedit/view?path=/path/to/file.txt`<br>
+- `openany://app/TextEdit/view?path=/path/to/file.txt`<br>
   opens `/path/to/file.txt` in TextEdit.
-- `openany://app/com.apple.textedit/view?url=file:///path/to/file.txt`<br>
+- `openany://app/TextEdit/view?url=file:///path/to/file.txt`<br>
   opens `/path/to/file.txt` in TextEdit, but using a `file://` URL instead of a path.
-- `openany://file/openwith/com.apple.textedit?path=/path/to/file.txt`<br>
+- `openany://file/openwith/TextEdit?path=/path/to/file.txt`<br>
   opens `/path/to/file.txt` in TextEdit.
-- `openany://file/openwith/com.apple.textedit?url=file:///path/to/file.txt`<br>
+- `openany://file/openwith/TextEdit?url=file:///path/to/file.txt`<br>
   opens `/path/to/file.txt` in TextEdit, but using a `file://` URL instead of a path.
 
 Reveal file: 
@@ -81,7 +83,7 @@ Reveal file:
 - `openany://file/reveal?url=file:///path/to/file.txt`<br>
   reveals `/path/to/file.txt` in Finder, but using a `file://` URL instead of a path.
 
-## How to get an app's bundle ID
+## Bonus: How to get an app's bundle ID
 
 You can drag and drop any app onto the OpenAny application icon to extract its bundle ID.
 
@@ -90,8 +92,6 @@ You can drag and drop any app onto the OpenAny application icon to extract its b
 3. Copy the bundle ID out of the dialog,<br>
    <img src="screenshots/openany_bundle-id.png" alt="Screenshot of the Bundle ID extractor" width="300">
 4. then close it (and quit the app).
-
-> ⚠️ For apps, you need the bundle identifier. PR's welcome for lookup of application by name!
 
 ## Why `file://`?!
 
@@ -139,14 +139,14 @@ The query parameters are called the URL's _payload._
 ### List of possible `VERB`s
 
 - For the `app` host
-    - with `BUNDLE_ID` being the `SUBJECT`:
+    - with `APP_ID` (a bundle identifier or app name) being the `SUBJECT`:
       - (none): Launches the app. Alias ans shorthand to `launch`.
-      - `launch`: `/app/BUNDLE_ID/launch`
-      - `view`: `/app/BUNDLE_ID/view` opens a file, specified by the payload, in the app. Alias for `/file/openwith/BUNDLE_ID`.
+      - `launch`: `/app/APP_ID/launch`
+      - `view`: `/app/APP_ID/view` opens a file, specified by the payload, in the app. Alias for `/file/openwith/APP_ID`.
 - For the `file` host:
     - `reveal`: Reveal a file, specified by the payload, in Finder.
     - `open`: Open a file, specified by the payload, in the default app.
-    - `openwith`: Open a file, specified by the payload, with the app being the `OBJECT`. Alias for `/app/BUNDLE_ID/view`. Example: `openany://file/openwith/com.apple.textedit?path=/path/to/file.txt` opens `/path/to/file.txt` in TextEdit.
+    - `openwith`: Open a file, specified by the payload, with the app being the `OBJECT`. Alias for `/app/APP_ID/view`. Example: `openany://file/openwith/com.apple.textedit?path=/path/to/file.txt` opens `/path/to/file.txt` in TextEdit.
     - `show`: Alias for `reveal`.
 
 ### List of possible Payloads
