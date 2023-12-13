@@ -11,7 +11,7 @@ extension OpenAnyError: LocalizedError {
         case .missingFileURLOrPath:
             return "Missing file URL or path."
         case .appNotFound(let appBundleID):
-            return "App with bundle identifier \(appBundleID) not found."
+            return "App with bundle identifier or name \(appBundleID) not found."
         }
     }
 
@@ -20,7 +20,7 @@ extension OpenAnyError: LocalizedError {
         case .missingFileURLOrPath:
             return "Provide either\na file URL query parameter as ?url=...\n or POSIX path as ?path=..."
         case .appNotFound(_):
-            return "Provide a valid bundle identifier. You can look these up in .app bundles."
+            return "Provide a valid bundle identifier or app name for best results. You can drag an app onto OpenAny to get the identifier."
         }
     }
 }

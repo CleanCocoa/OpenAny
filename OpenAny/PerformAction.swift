@@ -13,18 +13,18 @@ func perform(action: SmallerStringAction) throws {
         else { throw OpenAnyError.missingFileURLOrPath }
         NSWorkspace.shared.selectFile(fileURL.absoluteURL.absoluteString, inFileViewerRootedAtPath: "")
 
-    case (.app, let appBundleIdentifier, nil),
-         (.app, let appBundleIdentifier, "launch"):
-        guard let appURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: appBundleIdentifier)
-        else { throw OpenAnyError.appNotFound(appBundleIdentifier) }
+    case (.app, let appBundleIdentifierOrName, nil),
+         (.app, let appBundleIdentifierOrName, "launch"):
+        guard let appURL = appURL(bundleIdentifierOrName: appBundleIdentifierOrName)
+        else { throw OpenAnyError.appNotFound(appBundleIdentifierOrName) }
         NSWorkspace.shared.openApplication(
             at: appURL,
             configuration: .init(fromPayload: action.payload))
 
-    case (.app, let appBundleIdentifier, "view"),
-         (.file, "openwith", .some(let appBundleIdentifier)):
-        guard let appURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: appBundleIdentifier)
-        else { throw OpenAnyError.appNotFound(appBundleIdentifier) }
+    case (.app, let appBundleIdentifierOrName, "view"),
+         (.file, "openwith", .some(let appBundleIdentifierOrName)):
+        guard let appURL = appURL(bundleIdentifierOrName: appBundleIdentifierOrName)
+        else { throw OpenAnyError.appNotFound(appBundleIdentifierOrName) }
 
         if let fileURL = action.payload?.fileURL() {
             NSWorkspace.shared.open(
